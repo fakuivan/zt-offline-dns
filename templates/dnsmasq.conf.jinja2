@@ -1,8 +1,8 @@
 local=/{{ config.dns.domain }}/
-{{ for addresses, names in config.iter_hosts(resolver) }}
-    {{ for name in names }}
-        {{ for address in addresses }}
+{% for addresses, names in config.iter_hosts(resolver) %}
+    {% for name in names %}
+        {% for address in addresses %}
 address=/{{ name }}/{{ address }}
-        {{ endfor }}
-    {{ endfor }}
-{{ endfor }}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
