@@ -45,8 +45,9 @@ set_dns_params () {
 }
 
 with_network () {
-    local path verb
-    path=controller/network/"$(url_escape "$1")"
+    local path verb nwid
+    nwid="$1"
+    path=controller/network/"$(url_escape "$nwid")"
     verb="$2"
     shift 2
     case "$verb" in
@@ -58,7 +59,7 @@ with_network () {
                     }'
             ;;
         'set_dns_params')
-            set_dns_params "$@"
+            set_dns_params "$nwid" "$@"
             ;;
         'get_member_ips')
             path+=/member/"$(url_escape "$1")"
