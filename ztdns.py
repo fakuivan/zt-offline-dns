@@ -103,7 +103,7 @@ class ControllerNetworkCommand(NamedTuple):
 
 @argh.arg('template', help="Path to the jinja2 template for DNS server config", type=Path)
 @argh.arg('config_dir', help="Path to the directory with config files for networks", type=Path)
-@argh.arg('output_dir', help="Directory to drop the generated config files")
+@argh.arg('output_dir', help="Directory to drop the generated config files", type=Path)
 @argh.arg('controller_command', nargs = '+',
           help="Command and args used to query and set controller config")
 @typechecked
